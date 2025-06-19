@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fishing Catch Generator</title>
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            color: #333;
+        }
+
+        h1 {
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        .result {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        img {
+            margin: 20px auto;
+            max-width: 300px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        a {
+            display: block;
+            margin-top: 40px;
+            font-weight: bold;
+            color: #00796b;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #004d40;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎣 Fishing Catch Generator 🎣</h1>
+    <p>Click the button to see what you catch!</p>
+    <button onclick="generateCatch()">Cast Your Line</button>
+
+    <div class="result" id="result"></div>
+    <img id="fishImage" src="" alt="Caught Fish">
+
+    <a href="fromscratch.html">Back to Previous Page</a>
+
+    <script>
+        const catches = [
+            { name: "Largemouth Bass", image: "assets/img/Generator/largemouth-bass-virgil-beck.jpg" },
+            { name: "Rainbow Trout", image: "assets/img/Generator/AboutRainbowTrout-HERO-1200x800.jpg" },
+            { name: "Northern Pike", image: "assets/img/Generator/northern-pike-virgil-beck.jpg" },
+            { name: "Bluegill", image: "assets/img/Generator/bluegill-composite.jpg" },
+            { name: "Catfish", image: "assets/img/Generator/Channel-Catfish-1-scaled.jpg" },
+            { name: "You caught an old boot!", image: "assets/img/Generator/old-boot-caught-fishing-line-5695535.webp" }
+        ];
+
+        function generateCatch() {
+            const randomIndex = Math.floor(Math.random() * catches.length);
+            const catchResult = catches[randomIndex];
+
+            document.getElementById('result').innerText = `You caught a ${catchResult.name}!`;
+            const fishImage = document.getElementById('fishImage');
+            fishImage.src = catchResult.image;
+            fishImage.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
